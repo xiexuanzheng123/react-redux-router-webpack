@@ -3,19 +3,21 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+    devtool: 'eval-source-map',
     entry: {
-        verndor: ['react', 'react-dom'],
+        verndor: ['react', 'react-dom', 'whatwg-fetch'],
         index: [
             'babel-polyfill',
+            'webpack-hot-middleware/client?reload=true',
             'react-hot-loader',
             './index.js'
         ]
     },
     output: {
         filename: '[name].bundle.js',
+        publicPath: '/dist/',
         path: path.resolve(__dirname, 'dist')
     },
-    devtool: 'source-map',
     module: {
         rules: [
             {
@@ -45,8 +47,8 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.json', '.scss']
     },
-    devServer: {
-        inline: true,
-        port: 3000
-    }
+    // devServer: {
+    //     inline: true,
+    //     port: 3000
+    // }
 }
