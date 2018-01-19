@@ -1,14 +1,14 @@
 import express from 'express';
 import webpack from 'webpack';
-import path, { resolve } from 'path';
+import path from 'path';
 import config from '../configs/webpack.configs.dev';
 import open from 'open';
 import colors from 'colors';
 
 import httpProxy from 'http-proxy';
-const apiProxy = httpProxy.createProxyServer();
+const proxy = httpProxy.createProxyServer();//创建一个代理
 
-const port = 3000;
+const port = 3002;
 const app = express();
 const compiler = webpack(config);
 
@@ -31,7 +31,7 @@ app.use('/api/*', (req, res) => {
     }
     req.url = proxiedUrl;
 
-    apiProxy.web(req, res, {
+    proxy.web(req, res, {
         target: {
             host: 'localhost',
             port: 8080
