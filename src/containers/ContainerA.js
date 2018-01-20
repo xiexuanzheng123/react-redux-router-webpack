@@ -7,9 +7,9 @@ import { withRouter } from 'react-router';
 class ContainerA extends React.Component {
     render () {
         const { persion } = this.props;
-        console.log(this.props);
         return (
             <div>
+                <h2>React</h2>
                 {persion.age}
             </div>
         )
