@@ -12,6 +12,7 @@ import {
 export default (
     <div>
         <Switch>
+            <Route exac path="/" component={ContainerA} />
             <Route exac path="/ContainerA" component={ContainerA} />
             <Route exac path='/ContainerB' component={ContainerB} />
         </Switch>
