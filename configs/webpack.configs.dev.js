@@ -4,9 +4,13 @@ const colors = require('colors');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    devtool: 'eval-source-map',
+    devtool: 'cheap-module-eval-source-map',//source-map可以追溯错误位置
     entry: {
-        verndor: ['react', 'react-dom', 'whatwg-fetch'],
+        vendor: [
+            'react', 
+            'react-dom', 
+            'whatwg-fetch'
+        ],//compress the file
         index: [
             'babel-polyfill',
             'webpack-hot-middleware/client?reload=true',
@@ -57,11 +61,14 @@ module.exports = {
         ]
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
+        new webpack.HotModuleReplacementPlugin(),//hot replace
         new webpack.NamedModulesPlugin(),
         new HtmlWebpackPlugin({ //generate index.html and inject the css and js file
             title: 'index',
-            hash: true,
+            hash: true,//
+            minify: {
+                removeAttributeQuotes: true // 移除属性的引号
+            },
             chunks: ['index'],
             filename: 'index.html',
             template: './index.html',

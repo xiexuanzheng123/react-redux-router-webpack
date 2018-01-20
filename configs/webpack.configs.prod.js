@@ -8,7 +8,7 @@ const GLOBALS = {
 };
 
 module.exports = {
-    devtool: 'source-map',
+    devtool: 'cheap-module-source-map',
     entry: {
         index: [
             'babel-polyfill',
@@ -28,7 +28,7 @@ module.exports = {
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.DefinePlugin(GLOBALS),
         new ExtractTextPlugin('[name].css'),
-        new webpack.optimize.UglifyJsPlugin(),
+        new webpack.optimize.UglifyJsPlugin(),//compress the file, 
         new HtmlWebpackPlugin({
             title: 'index',
             minify: {
