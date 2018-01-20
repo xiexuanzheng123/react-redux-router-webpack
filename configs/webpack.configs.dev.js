@@ -1,5 +1,6 @@
 const webpack =  require('webpack');
 const path = require('path');
+const colors = require('colors');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -16,7 +17,7 @@ module.exports = {
     output: {
         filename: '[name].bundle.js',
         publicPath: '/dist/',
-        path: path.resolve(__dirname, 'dist')
+        path: path.join(__dirname, 'dist')//__dirname: 文件所在的完整目录
     },
     module: {
         rules: [
@@ -27,18 +28,44 @@ module.exports = {
                     loader: 'babel-loader'
                 }
                     
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true,
+                            importLoaders: 1,
+                            localIdentName: '[name].[local]',
+                            modules: true
+                        }
+                    }
+                ]
+            },{
+                test: /\.(jpe?g | png | gif | svg)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: 'images/[name].[ext]'
+                        }
+                    }
+                ]
             }
         ]
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin(),
-        new HtmlWebpackPlugin({
+        new HtmlWebpackPlugin({ //generate index.html and inject the css and js file
             title: 'index',
             hash: true,
             chunks: ['index'],
             filename: 'index.html',
-            template: './index.html'
+            template: './index.html',
+            favicon: './src/images/react.jpg'
         })
     ],
     resolve: {
