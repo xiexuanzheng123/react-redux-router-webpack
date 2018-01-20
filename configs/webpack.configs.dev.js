@@ -28,7 +28,7 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /(node_models|browser_components)/,
-                use: {
+                use: { //需要的loader
                     loader: 'babel-loader'
                 }
                     

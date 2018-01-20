@@ -38,7 +38,8 @@ module.exports = {
             hash: true,
             chunks: ['index'],
             filename: 'index.html',
-            template: './index.html'
+            template: './index.html',
+            favicon: './src/images/react.jpg'
         }),
         new HtmlWebpackPlugin({
             title: 'list',
@@ -63,8 +64,8 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
+                use: ExtractTextPlugin.extract({//抽离css样式，防止将样式打包到js中引起页面样式加载混乱
+                    fallback: 'style-loader', //编译之后用什么loader去提取css文件
                     use: [
                         {
                             loader: 'css-loader',
