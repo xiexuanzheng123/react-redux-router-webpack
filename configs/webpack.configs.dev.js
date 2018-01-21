@@ -28,14 +28,14 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /(node_models|browser_components)/,
-                use: { //需要的loader
+                use: { 
                     loader: 'babel-loader'
                 }
                     
             },
             {
                 test: /\.css$/,
-                use: [
+                use: [//需要的loader
                     'style-loader',
                     {
                         loader: 'css-loader',
