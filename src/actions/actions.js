@@ -2,7 +2,7 @@ import * as types from './actionTypes';
 
 export function addStudent (student) {
     return {
-        type: types.ADD_STUDENTS,
+        type: types.ADD_STUDENT,
         student
     }
 }

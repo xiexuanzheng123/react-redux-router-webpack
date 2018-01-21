@@ -6,6 +6,14 @@ import { withRouter } from 'react-router';
 import StudentMessage from '../components/StudentMessage';
 
 class StudentList extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleClickAdd = this.handleClickAdd.bind(this);
+    }
+    handleClickAdd() {
+        const { history } = this.props;
+        history.push('./addStudent');
+    }
     render () {
         const { students } = this.props;
         console.log(students);
@@ -33,6 +41,7 @@ class StudentList extends React.Component {
                         }
                     </tbody>
                 </table>
+                <a href="javascript:void(0)" onClick={this.handleClickAdd}>添加新生</a>
             </div>
         )
     }

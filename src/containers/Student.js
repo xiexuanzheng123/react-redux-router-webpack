@@ -13,6 +13,8 @@ class Student extends React.Component {
         this.handleClickConfirm = this.handleClickConfirm.bind(this);
         this.handleClickCancel = this.handleClickCancel.bind(this);
         this.handleEditName = this.handleEditName.bind(this);
+        this.handleEditAge = this.handleEditAge.bind(this);
+        this.handleEditSex = this.handleEditSex.bind(this);
     }
     handleEditName (e) {
         const { actions } = this.props;
@@ -26,19 +28,10 @@ class Student extends React.Component {
         const { actions } = this.props;
         actions.editSex(e.target.value);
     }
-    handleClickConfirm ({
-        name: name,
-        age: age,
-        sex: sex
-    }) {
-
-        actions.addStudent(
-            {
-                name,
-                age,
-                sex
-            }
-        );
+    handleClickConfirm () {
+        const { student, actions, history } = this.props;
+        actions.addStudent(student);
+        history.push('./');
     }
     handleClickCancel () {
         alert('cancel');
@@ -47,7 +40,9 @@ class Student extends React.Component {
         return (
             <div>
                 <StudentContent 
-                    handleEditName={this.handleEditName}    
+                    handleEditName={this.handleEditName}
+                    handleEditAge={this.handleEditAge} 
+                    handleEditSex={this.handleEditSex}     
                 />
                 <Buttons 
                     handleClickConfirm={this.handleClickConfirm}
