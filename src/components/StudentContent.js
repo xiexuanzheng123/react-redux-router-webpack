@@ -1,25 +1,33 @@
 import React from 'react';
+import { TextInput, SelectInput } from '../common';
 
-class StudentContent extends React.Component {
-    
+class StudentContent extends React.Component {    
     setOptions(mix, max, options=[]) {
         for (let i=mix; i<=max; i++) {
             options.push(i);
         }
         return options;
     }
-    render () {
+    render() {
         const { 
             handleEditName, 
             handleEditAge, 
-            handleEditSex 
+            handleEditSex,
+            student 
         } = this.props;
         let options = this.setOptions(15, 25);
+        const { name, age, sex } = student;
         return (
             <div>
                 <h3>添加新生:</h3>
                 <label>Name：
-                    <input onChange={(e) => handleEditName(e)} />
+                    <TextInput
+                        id={'student_name'}
+                        name={'student_name'}
+                        value={name}
+                        placehoder={'Please input name...'}
+                        onChange={(e) => handleEditName(e)} 
+                    />
                 </label><br />
                 <label>Age：
                     <select  name='age' onChange={(e) => handleEditAge(e)}>

@@ -37,9 +37,11 @@ class Student extends React.Component {
         alert('cancel');
     }
     render () {
+        const { student } = this.props;
         return (
             <div>
-                <StudentContent 
+                <StudentContent
+                    student={student} 
                     handleEditName={this.handleEditName}
                     handleEditAge={this.handleEditAge} 
                     handleEditSex={this.handleEditSex}     

@@ -8,7 +8,7 @@ import {
     StudentList,
     Student
 } from './src/containers';
-console.log(Student);
+
 export default (
     <div>
         <Switch>

@@ -39,12 +39,12 @@ module.exports = {
                     'style-loader',
                     {
                         loader: 'css-loader',
-                        options: {
-                            sourceMap: true,
-                            importLoaders: 1,
-                            localIdentName: '[name].[local]',
-                            modules: true
-                        }
+                        // options: {
+                        //     sourceMap: true,
+                        //     importLoaders: 1,
+                        //     localIdentName: '[name].[local]',
+                        //     modules: true
+                        // }
                     }
                 ]
             },{
