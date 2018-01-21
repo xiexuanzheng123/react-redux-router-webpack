@@ -8,13 +8,13 @@ import {
     StudentList,
     Student
 } from './src/containers';
-
+console.log(Student);
 export default (
     <div>
         <Switch>
-            <Route exac path="/" component={StudentList} />
-            <Route exac path="/StudentList" component={StudentList} />
-            <Route exac path='/Student' component={Student} />
+            <Route exact path="/" component={StudentList} />
+            <Route exact path="/StudentList" component={StudentList} />
+            <Route exact path="/addStudent" component={Student} />
         </Switch>
     </div>
 )
