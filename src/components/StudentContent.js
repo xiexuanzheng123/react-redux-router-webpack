@@ -4,7 +4,7 @@ import { TextInput, SelectInput } from '../common';
 class StudentContent extends React.Component {    
     setOptions(mix, max, options=[]) {
         for (let i=mix; i<=max; i++) {
-            options.push(i);
+            options.push({'key': i, 'value': i});
         }
         return options;
     }
@@ -30,15 +30,13 @@ class StudentContent extends React.Component {
                     />
                 </label><br />
                 <label>Age：
-                    <select  name='age' onChange={(e) => handleEditAge(e)}>
-                        {
-                            options.map((option, key) => {
-                                return (
-                                    <option key={key} value={option}>{option}</option>
-                                )
-                            })
-                        }
-                    </select>
+                    <SelectInput 
+                        id={`age_select`}
+                        name={`age_select`}
+                        value={age}
+                        onChange={handleEditAge}
+                        options={options}
+                    />
                 </label><br />
                 <label>Sex：
                     <input type='radio' name='sex' value='male' onChange={handleEditSex}/>male

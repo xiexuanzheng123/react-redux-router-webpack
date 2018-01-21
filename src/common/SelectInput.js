@@ -6,11 +6,10 @@ const SelectInput = (
         id,
         name,
         value,
-        defaultOption,
         options,
         onChange,
-        readonly,
-        diabled
+        readOnly,
+        disabled
     }
 ) => {
     return (
@@ -19,20 +18,20 @@ const SelectInput = (
             name={name}
             value={value}
             onChange={onChange}
-            readonly={readonly}
+            readOnly={readOnly}
             disabled={disabled}
         >
-            {
+            {/* {
                 defaultOption ? <option value={defaultOption.value}>{defaultOption.value}</option> : null
-            }
+            } */}
             {
-                options.filter(option => defaultOption.value !== option.value).map((option) => {
+                options.map((option) => {
                     return (
                         <option 
-                            key={option.value}
+                            key={option.key}
                             value={option.value}
                         >
-                            {option.text}
+                            {option.value}
                         </option>
                     )
                 })
@@ -44,7 +43,6 @@ SelectInput.propTypes = {
     id: PropTypes.string,
     name: PropTypes.string,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]).isRequired,
-    defaultOption: PropTypes.object,
     options: PropTypes.arrayOf(PropTypes.object),
     readonly: PropTypes.bool,
     disabled: PropTypes.bool
