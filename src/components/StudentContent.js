@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextInput, SelectInput } from '../common';
+import { TextInput, SelectInput, RadioInput } from '../common';
 
 class StudentContent extends React.Component {    
     setOptions(mix, max, options=[]) {
@@ -16,6 +16,7 @@ class StudentContent extends React.Component {
             student 
         } = this.props;
         let options = this.setOptions(15, 25);
+        let sexOptions = ['male', 'female'];
         const { name, age, sex } = student;
         return (
             <div>
@@ -39,8 +40,23 @@ class StudentContent extends React.Component {
                     />
                 </label><br />
                 <label>Sex：
-                    <input type='radio' name='sex' value='male' onChange={handleEditSex}/>male
-                    <input type='radio' name='sex' value='female' onChange={handleEditSex}/>female
+                    <div>
+                        {
+                            sexOptions.map((sexOption, key) => {
+                                return (
+                                    <RadioInput 
+                                        id={`sex_radio_${sexOption}`}
+                                        name={`sex_radio_${sexOption}`}
+                                        label={sexOption}
+                                        value={sexOption}
+                                        key={key}
+                                        defaultValue={sex}
+                                        onChange={handleEditSex}
+                                    />
+                                )
+                            })
+                        }
+                    </div>
                 </label>
             </div>
         )

@@ -1,6 +1,6 @@
 const student = {
     name: '',
     age: 19,
-    sex: ''
+    sex: 'male'
 };
 export default student;
