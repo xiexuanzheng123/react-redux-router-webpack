@@ -1,1 +1,1 @@
-export const MODIFY_AGE = 'MODIFY_AGE';
+export const ADD_STUDENTS = 'ADD_STUDENTS';

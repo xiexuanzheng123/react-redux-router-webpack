@@ -1,8 +1,8 @@
 import * as types from './actionTypes';
 
-export function modifyAge(age) {
+export function modifyAge(student) {
     return {
-        type: types.MODIFY_TYPES,
-        age
+        type: types.ADD_STUDENTS,
+        student
     }
 }

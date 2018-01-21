@@ -1,7 +1,7 @@
-import ContainerA from './ContainerA';
-import ContainerB from './ContainerB';
+import StudentList from './StudentList';
+import Student from './Student';
 
 export {
-    ContainerA,
-    ContainerB
+    StudentList,
+    Student
 };

@@ -5,16 +5,16 @@ import {
     Switch
 } from 'react-router-dom';
 import {
-    ContainerA,
-    ContainerB
+    StudentList,
+    Student
 } from './src/containers';
 
 export default (
     <div>
         <Switch>
-            <Route exac path="/" component={ContainerA} />
-            <Route exac path="/ContainerA" component={ContainerA} />
-            <Route exac path='/ContainerB' component={ContainerB} />
+            <Route exac path="/" component={StudentList} />
+            <Route exac path="/StudentList" component={StudentList} />
+            <Route exac path='/Student' component={Student} />
         </Switch>
     </div>
 )

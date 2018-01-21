@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import persion from './persionReducer';
+import students from './studentReducer';
 
 const rootReducer = combineReducers({
-    persion
+    students
 });
 export default rootReducer;
