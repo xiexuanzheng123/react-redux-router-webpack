@@ -1,0 +1,221 @@
+﻿/* 插件： post-css-import, postcss-center, postcss-cssnext, cssnano*/
+
+:root {
+    /*global color*/
+    --black: #000;
+    --black-light: #333;
+    --grey: #a6a6a6;
+    --grey-light: #ccc;
+    --grey-lighter: #eee;
+    --white: #fff;
+    --green: #3eac40;
+    --blue: #428bca;
+    --grey-shadow: rgba(0, 0, 0,.075);
+    --red: #ff0000;
+    --orange: #ff9933;
+    --pink-light: #F6E4EB;
+
+
+    /* text color*/
+    --text-color: var(--black-light);
+    --text-link-color: var(--green);
+    --text-highlighted-color: var(--green);
+
+    /* font-size */
+    --font-lg: 20px; /*use for page title*/
+    --font-md: 16px; /*use for subtitle*/
+    --font-xs: 14px; /*use for content*/
+
+    /* dash service state color*/
+    --normal: var(--green);
+    --part-error: var(--orange);
+    --all-error: var(--red);
+
+    /*padding and margin*/
+    --padding-lg: 20px;
+    --padding-md: 10px;
+    --padding-xs: 5px;
+    --padding-xxs: 3px;
+
+    --margin-lg: 20px;
+    --margin-md: 10px;
+    --margin-xs: 5px;
+    --margin-xxs: 3px;
+
+    /* table */
+    --table-title-color: var(--white);
+    --table-title-bg: var(--grey);
+    --table-border: var(--grey-light);
+    --table-content-color: var(--black-light);
+    --table-content-bg: var(--white);
+
+    /*light pink table */
+    --table-pink-title-color: var(--black-light);
+    --table-pink-title-bg: var(--pink-light);
+    --table-pink-border: var(--grey-lighter);
+    --table-pink-content-color: var(--black-light);
+    --table-pink-content-bg: var(--white);
+
+    /* button */
+    --btn-border: var(--grey-light);
+
+    --btn-default-color: var(--black-light);
+    --btn-default-bg: var(--white);
+
+    --btn-disabled-color: var(--grey-light);
+    --btn-disabled-bg: var(--grey-lighter);
+
+    --btn-green-color: var(--white);
+    --btn-green-bg: var(--green);
+
+    --btn-blue-color: var(--white);
+    --btn-blue-bg: var(--blue);
+
+    /* form */
+    --label-title-color: var(--black);
+    --label-color: var(--black-light);
+    --input-text-color: var(--black-light);
+    --input-border-color: var(--grey-light);
+    --input-border-shadow: var(--grey-shadow);
+
+    /* pagination */
+    --pagi-color: var(--black-light);
+    --pagi-border: var(--grey-light);
+    --pagi-hover-color: var(--green);
+    --pagi-current-color: var(--green);
+    --pagi-disabled-bg: var(--grey-lighter);
+    --pagi-disabled-color: var(--grey-light);
+
+    /* tab */
+    --tab-color: var(--black-light);
+    --tab-border: var(--grey-light);
+
+    /* popup */
+    --popupLayout-bg-color: rgba(0, 0, 0, .5);
+    --popup-title-bg-color: var(--green);
+    --popup-title-color: var(--white);
+    --popup-bg-color: var(--white);
+    --popup-text-color: var(--black-light);
+    --popup-border: 1px solid var(--grey);
+
+    /* button for confirm/cancel*/
+    --default-btn {
+        padding: 0 var(--padding-md);
+        height: 30px;
+        font-size: var(--font-xs);
+        color: var(--btn-default-color);
+        border-radius: 5px;
+        border: 1px solid var(--btn-border);
+        background: var(--btn-default-bg);
+        outline: 0;
+        cursor: pointer;
+    }
+    
+    /* button for content */
+    --wider-btn {
+        padding: 0 var(--padding-lg);
+        height: 30px;
+        font-size: var(--font-xs);
+        color: var(--btn-default-color);
+        border-radius: 3px;
+        border: 1px solid var(--btn-border);
+        background: var(--btn-default-bg);
+        outline: 0;
+        cursor: pointer;
+        vertical-align: middle;
+    }
+    --wider-btn-hover {
+        background: #eef4f9;
+    }
+
+    /* select input*/
+    --select {
+        padding: 0 var(--padding-md);
+        height: 30px;
+        border: 1px solid var(--input-border-color);
+        border-radius: 3px;
+    }
+
+    /* text input*/
+    --text-input {
+        height: 28px;
+        color: var(--input-text-color);
+        padding: 0 var(--padding-xs);
+        border-radius: 3px;
+        border: 1px solid var(--input-border-color);
+        box-shadow: inset 0 1px 1px var(--input-border-shadow);
+    }
+
+    /*service*/
+    --service-part {
+        width: 20%;
+        background-color: var(--grey-lighter);
+        text-align: center;
+        vertical-align: middle;
+        display: inline-block;
+        padding: var(--padding-md) 0;
+        cursor: default;
+    }
+    /** serviceContent*/
+    --service-part-content {
+        width: 20%;
+        background-color: var(--grey-lighter);
+        text-align: center;
+        vertical-align: top;
+        display: inline-block;
+        padding: calc(var(--padding-lg) * 4) 0;
+        cursor: default;
+    }
+    /*label-star*/
+    --label-star {
+        color: var(--blue);
+        margin-left: 10px;
+        font-size: 14px;
+        vertical-align: top;
+    }
+
+    /*select-part*/
+    --service-content {
+        display: inline-block;
+        margin-left: 20px;
+    }
+    --tab {
+       display: inline-block;
+    }
+
+    --tab-title {
+        width: 100%;
+        height:  30px;
+        padding: 0;
+        box-sizing: border-box;
+        border-bottom: 1px solid #999;
+    }
+
+    --tab-item {
+        display: inline-block;
+        width: 90px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        box-sizing: border-box;
+        margin-right: var(--margin-md);
+        border: 1px solid var(--grey);
+        background-color: var(--grey-lighter);
+        cursor: pointer;
+    }
+
+    --active {
+        border-bottom: none;
+        background-color: var(--white)
+    }
+
+    /***red circle****/
+    --red-circle {
+        height: 10px;
+        width: 10px;
+        border-radius: 5px;
+        background-color: red;
+        display: inline-block;
+        margin-right: 10px;
+    }
+}

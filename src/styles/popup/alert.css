@@ -24,7 +24,7 @@
             width: 15px;
             height: 15px;
             cursor: pointer;
-            background: url('../../../public/images/pop-close.png') 0 0 no-repeat;
+            background: url('../../images/pop-close.png') 0 0 no-repeat;
         }
         & .content {
             width: 100%;
