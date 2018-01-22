@@ -8,7 +8,7 @@ class Alert extends React.Component {
             isShow,
             message,
             okText,
-            okText
+            okEvent
         } = this.props;
 
         return (

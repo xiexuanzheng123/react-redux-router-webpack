@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { AlertStyles as Styles } from '../../styles/popup';
+import { AlertStyles as Styles } from '../styles/popup';
 
 const propTypes = {
     message: PropTypes.string.isRequired,
