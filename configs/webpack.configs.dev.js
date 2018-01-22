@@ -39,16 +39,22 @@ module.exports = {
                     'style-loader',
                     {
                         loader: 'css-loader',
-                        // options: {
-                        //     sourceMap: true,
-                        //     importLoaders: 1,
-                        //     localIdentName: '[name].[local]',
-                        //     modules: true
-                        // }
+                        options: {
+                            sourceMap: true,
+                            importLoaders: 1,
+                            localIdentName: '[name].[local]',
+                            modules: true
+                        }
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            sourceMap: 'inline'
+                        } 
                     }
                 ]
             },{
-                test: /\.(jpe?g | png | gif | svg)$/,
+                test: /\.(jpe?g|png|gif|svg)$/,
                 use: [
                     {
                         loader: 'file-loader',

@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import * as actions from '../actions/actionTypes';
 import { withRouter } from 'react-router';
 import StudentMessage from '../components/StudentMessage';
+import { listStyles as Styles } from '../styles/list';
 
 class StudentList extends React.Component {
     constructor(props) {
@@ -16,10 +17,9 @@ class StudentList extends React.Component {
     }
     render () {
         const { students } = this.props;
-        console.log(students);
         return (
-            <div>
-                <h2>学生列表</h2>
+            <div className={Styles.wrap}>
+                <h2 className={Styles.title}>学生列表</h2>
                 <table>
                     <thead>
                         <tr>

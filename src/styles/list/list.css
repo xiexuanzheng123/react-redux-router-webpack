@@ -1,0 +1,10 @@
+@import '../common/variables.css';
+
+.wrap {
+    width: 70%;
+    margin: 60px auto;
+    &.title {
+        color: green;
+        font-size: var(--font-xs);
+    }
+}
