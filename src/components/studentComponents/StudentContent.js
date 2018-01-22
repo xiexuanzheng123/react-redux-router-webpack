@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextInput, SelectInput, RadioInput } from '../common';
+import { TextInput, SelectInput, RadioInput } from '../../common';
 
 class StudentContent extends React.Component {    
     setOptions(mix, max, options=[]) {

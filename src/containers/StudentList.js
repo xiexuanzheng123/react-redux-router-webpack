@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/actionTypes';
 import { withRouter } from 'react-router';
-import StudentMessage from '../components/StudentMessage';
+import { StudentMessage } from '../components/listComponents';
 import { listStyles as Styles } from '../styles/list';
 
 class StudentList extends React.Component {
