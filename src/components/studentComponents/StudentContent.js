@@ -21,7 +21,7 @@ class StudentContent extends React.Component {
         return (
             <div>
                 <h3>添加新生:</h3>
-                <label>Name：
+                <label>名字:
                     <TextInput
                         id={'student_name'}
                         name={'student_name'}
@@ -30,7 +30,7 @@ class StudentContent extends React.Component {
                         onChange={(e) => handleEditName(e)} 
                     />
                 </label><br />
-                <label>Age：
+                <label>年龄：
                     <SelectInput 
                         id={`age_select`}
                         name={`age_select`}
@@ -39,7 +39,7 @@ class StudentContent extends React.Component {
                         options={options}
                     />
                 </label><br />
-                <label>Sex：
+                <label>性别：
                     <div>
                         {
                             sexOptions.map((sexOption, key) => {

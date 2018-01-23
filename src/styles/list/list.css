@@ -8,5 +8,6 @@
         font-size: var(--font-lg);
         border-bottom: 2px solid var(--grey-light);
         padding-bottom: var(--margin-xs);
+        margin-bottom: var(--margin-xs);
     }
 }

@@ -3,7 +3,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/actionTypes';
 import { withRouter } from 'react-router';
-import { StudentMessage } from '../components/listComponents';
+import { 
+    StudentMessage, 
+    ListButtonNav 
+} from '../components/listComponents';
 import { listStyles as Styles } from '../styles/list';
 
 class StudentList extends React.Component {
@@ -20,12 +23,13 @@ class StudentList extends React.Component {
         return (
             <div className={Styles.wrap}>
                 <h2 className={Styles.title}>学生列表</h2>
+                <ListButtonNav />
                 <table>
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Age</th>
-                            <th>Sex</th>
+                            <th>名字</th>
+                            <th>年龄</th>
+                            <th>性别</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -41,7 +45,7 @@ class StudentList extends React.Component {
                         }
                     </tbody>
                 </table>
-                <a href="javascript:void(0)" onClick={this.handleClickAdd}>添加新生</a>
+                {/* <a href="javascript:void(0)" onClick={this.handleClickAdd}>添加新生</a> */}
             </div>
         )
     }

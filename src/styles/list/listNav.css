@@ -1,1 +1,48 @@
 @import '../common/variables.css';
+
+.topNav {
+    padding: var(--padding-xs);
+    margin-top: 20px;
+    & .topBtns {
+        float: left;
+        & .btnAdd, & .btnUpdate, & .btnDelete {
+            @apply --wider-btn;
+            display: inline-block;
+            height: 28px;
+            line-height: 28px;
+            text-decoration: none;
+            margin-right: var(--margin-xs);
+        },
+        & .btnAdd:hover, & .btnUpdate:hover, & .btnDelete:hover {
+            @apply --wider-btn-hover;
+        },
+        & .disabled {
+            background-color: var(--btn-disabled-bg);
+            color: var(--btn-disabled-color);
+            cursor: not-allowed;
+            & .hover {
+                background-color: var(--btn-disabled-bg);
+                color: var(--btn-disabled-color);
+            }
+        }
+
+    }
+    & .searchPart {
+        float: right;
+        & .searchBox {
+            @apply --text-input;
+            margin-right: var(--margin-xs);
+        }
+        & .searchBtn {
+            @apply --wider-btn;
+            display: inline-block;
+            height: 30px;
+            line-height: 30px;
+            text-decoration: none;
+            margin-right: var(--margin-xs);
+        }
+        & .searchBtn:hover {
+            @apply --wider-btn-hover;
+        }
+    }
+}
