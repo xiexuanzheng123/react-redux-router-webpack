@@ -1,4 +1,5 @@
 import React from 'react';
+import { listContentStyles as Styles } from '../../styles/list';
 
 class StudentMessage extends React.Component {
     render () {

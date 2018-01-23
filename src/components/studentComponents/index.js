@@ -1,7 +1,7 @@
 import Buttons from './Buttons';
-import StudentContent from './StudentContent';
+import StudentMessage from './StudentMessage';
 
 export {
     Buttons,
-    StudentContent
+    StudentMessage
 }

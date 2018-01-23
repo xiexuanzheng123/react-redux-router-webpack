@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import * as actions from '../actions/actionTypes';
 import { withRouter } from 'react-router';
 import { 
-    StudentMessage, 
+    StudentContents, 
     ListButtonNav 
 } from '../components/listComponents';
 import { listStyles as Styles } from '../styles/list';
@@ -24,28 +24,32 @@ class StudentList extends React.Component {
             <div className={Styles.wrap}>
                 <h2 className={Styles.title}>学生列表</h2>
                 <ListButtonNav />
-                <table>
-                    <thead>
-                        <tr>
-                            <th>名字</th>
-                            <th>年龄</th>
-                            <th>性别</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            students.map((student, key) => {
-                                return (
-                                    <StudentMessage 
-                                        student={student}
-                                        key={key}
-                                    />
-                                )
-                            })
-                        }
-                    </tbody>
-                </table>
-                {/* <a href="javascript:void(0)" onClick={this.handleClickAdd}>添加新生</a> */}
+                <div className={Styles.mainList}>
+                    <table className={Styles.listTable}>
+                        <thead>
+                            <tr>
+                                <th className={Styles.name}>名字</th>
+                                <th className={Styles.age}>年龄</th>
+                                <th className={Styles.sex}>性别</th>
+                                <th className={Styles.major}>专业</th>
+                                <th className={Styles.hobby}>兴趣爱好</th>
+                                <th className={Styles.profile}>个人简介</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                students.map((student, key) => {
+                                    return (
+                                        <StudentContents 
+                                            student={student}
+                                            key={key}
+                                        />
+                                    )
+                                })
+                            }
+                        </tbody>
+                    </table>
+                </div>
             </div>
         )
     }

@@ -4,7 +4,7 @@ import {
     browserHistory, withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { StudentContent, Buttons } from '../components/studentComponents';
+import { StudentMessage, Buttons } from '../components/studentComponents';
 
 class Student extends React.Component {
     constructor(props) {
@@ -39,7 +39,7 @@ class Student extends React.Component {
         const { student } = this.props;
         return (
             <div>
-                <StudentContent
+                <StudentMessage
                     student={student} 
                     handleEditName={this.handleEditName}
                     handleEditAge={this.handleEditAge} 

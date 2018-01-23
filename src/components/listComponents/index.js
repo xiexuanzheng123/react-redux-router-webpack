@@ -1,7 +1,7 @@
-import StudentMessage from './StudentMessage';
+import StudentContents from './StudentContents';
 import ListButtonNav from './ListButtonNav';
 
 export {
-    StudentMessage,
+    StudentContents,
     ListButtonNav
 }

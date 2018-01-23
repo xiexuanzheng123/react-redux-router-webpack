@@ -10,4 +10,41 @@
         padding-bottom: var(--margin-xs);
         margin-bottom: var(--margin-xs);
     }
+    & .mainList {
+        width: 100%;
+        margin: 20px auto;
+        & .listTable {
+            border-collapse: collapse;
+            width: 100%;
+            & thead {
+                background-color: var(--table-title-bg);
+                color: var(--table-title-color);
+                & th {
+                    text-align: center;
+                    border-bottom: 2px solid #ddd;
+                    padding: 5px 0;
+                    font-size: 16px;
+                    font-weight: normal;
+                }
+                & .name {
+                        width: 10%;
+                    }
+                & .age {
+                    width: 10%;
+                }
+                & .sex {
+                    width: 10%;
+                }
+                & .major {
+                    width: 10%;
+                }
+                & .hobby {
+                    width: 20%;
+                }
+                & .profile {
+                    width: 40%
+                }
+            }
+        }
+    }
 }

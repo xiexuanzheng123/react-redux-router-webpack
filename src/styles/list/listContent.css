@@ -1,0 +1,8 @@
+@import '../common/variables.css';
+
+tr {
+    margin-top: var(--margin-xs);
+    & td {
+        text-align: center;
+     }
+}

@@ -3,6 +3,7 @@
 .topNav {
     padding: var(--padding-xs);
     margin-top: 20px;
+    overflow: hidden;
     & .topBtns {
         float: left;
         & .btnAdd, & .btnUpdate, & .btnDelete {
