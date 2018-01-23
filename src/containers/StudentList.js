@@ -17,6 +17,7 @@ class StudentList extends React.Component {
         this.handleClickDeleteStudents = this.handleClickDeleteStudents.bind(this);
         this.handleClickSearch = this.handleClickSearch.bind(this);
         this.handleEditKeyWord = this.handleEditKeyWord.bind(this);
+        this.handleClickAdd = this.handleClickAdd.bind(this);
     }
     handleClickAdd () {
         const { history } = this.props;
@@ -39,6 +40,10 @@ class StudentList extends React.Component {
         const { actions } = this.props;
         actions.editKeyWord(e.target.value);
     }
+    handleClickAdd () {
+        const { history } = this.props;
+        history.push('./AddStudent');
+    }
     render () {
         const { students, studentChecked } = this.props;
         return (
@@ -49,6 +54,7 @@ class StudentList extends React.Component {
                     handleClickSearch={this.handleClickSearch}
                     handleEditKeyWord={this.handleEditKeyWord}
                     studentChecked={studentChecked}
+                    handleClickAdd={this.handleClickAdd}
                 />
                 <div className={Styles.mainList}>
                     <table className={Styles.listTable}>
