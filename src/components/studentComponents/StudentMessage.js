@@ -1,7 +1,7 @@
 import React from 'react';
 import { TextInput, SelectInput, RadioInput } from '../../common';
 
-class StudentContent extends React.Component {    
+class StudentMessage extends React.Component {    
     setOptions(mix, max, options=[]) {
         for (let i=mix; i<=max; i++) {
             options.push({'key': i, 'value': i});
@@ -62,4 +62,4 @@ class StudentContent extends React.Component {
         )
     }
 }
-export default StudentContent;
+export default StudentMessage;

@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as actions from '../actions/actionTypes';
-import { withRouter } from 'react-router';
+import * as actions from '../actions/actions';
+import { withRouter } from 'react-router-dom';
 import { 
-    StudentContents, 
+    StudentContent, 
     ListButtonNav 
 } from '../components/listComponents';
 import { listStyles as Styles } from '../styles/list';
@@ -13,13 +13,18 @@ class StudentList extends React.Component {
     constructor(props) {
         super(props);
         this.handleClickAdd = this.handleClickAdd.bind(this);
+        this.handleSelectStudent = this.handleSelectStudent.bind(this);
     }
-    handleClickAdd() {
+    handleClickAdd () {
         const { history } = this.props;
         history.push('./addStudent');
     }
+    handleSelectStudent (e) {
+        const { actions } = this.props;
+        actions.selectStudent(e.target.id);
+    }
     render () {
-        const { students } = this.props;
+        const { students, studentChecked } = this.props;
         return (
             <div className={Styles.wrap}>
                 <h2 className={Styles.title}>学生列表</h2>
@@ -41,7 +46,9 @@ class StudentList extends React.Component {
                             {
                                 students.map((student, key) => {
                                     return (
-                                        <StudentContents 
+                                        <StudentContent
+                                            handleSelectStudent={this.handleSelectStudent}
+                                            studentChecked={studentChecked} 
                                             student={student}
                                             key={key}
                                         />
@@ -57,7 +64,8 @@ class StudentList extends React.Component {
 }
 const mapStateToProps = (state, ownProps) => {
     return {
-        students: state.students
+        students: state.students,
+        studentChecked: state.studentChecked
     }
 }
 const mapDispatchToProps = (dispatch, ownProps) => {

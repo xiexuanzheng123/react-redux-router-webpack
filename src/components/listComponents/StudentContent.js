@@ -1,10 +1,11 @@
 import React from 'react';
+import _ from 'lodash';
 import { CheckInput } from '../../common';
 import { listContentStyles as Styles } from '../../styles/list';
 
-class StudentMessage extends React.Component {
+class StudentContent extends React.Component {
     render () {
-        const { student } = this.props;
+        const { student, studentChecked, handleSelectStudent } = this.props;
         const { 
             id, 
             name, 
@@ -18,11 +19,11 @@ class StudentMessage extends React.Component {
             <tr>
                 <td>
                     <CheckInput 
-                        id={`student_${id}`}
+                        id={`${id}`}
                         name={`student`}
                         value={id}
-                        checked={`false`}
-                        
+                        checked={_.indexOf(studentChecked, id) !== -1  ? true : false}
+                        onChange={(e) => handleSelectStudent(e) }
                     />
                 </td>
                 <td>{name}</td>
@@ -35,4 +36,4 @@ class StudentMessage extends React.Component {
         )
     }
 }
-export default StudentMessage;
+export default StudentContent;

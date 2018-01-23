@@ -1,7 +1,7 @@
-import StudentContents from './StudentContents';
+import StudentContent from './StudentContent';
 import ListButtonNav from './ListButtonNav';
 
 export {
-    StudentContents,
+    StudentContent,
     ListButtonNav
 }

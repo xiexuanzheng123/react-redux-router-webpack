@@ -4,7 +4,10 @@ import {
     browserHistory, withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { StudentMessage, Buttons } from '../components/studentComponents';
+import { 
+    StudentMessage, 
+    Buttons 
+} from '../components/studentComponents';
 
 class Student extends React.Component {
     constructor(props) {
