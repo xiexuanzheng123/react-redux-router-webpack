@@ -10,17 +10,19 @@ class ListButtonNav extends React.Component {
             handleEditKeyWord,
             studentChecked
         } = this.props;
+        const updateDisabled = studentChecked.length === 1 ? true : false;
+        const deleteDisabled = studentChecked.length === 0 ? true : false;
         return (
             <div className={Styles.topNav}>
                 <div className={Styles.topBtns}>
                     <a className={Styles.btnAdd} href='./addStudent'>添加</a>
                     <a 
-                        className={Styles.btnUpdate}
+                        className={updateDisabled ? Styles.btnUpdate :  Styles.disabled}
                     >
                         修改
                     </a>
                     <a 
-                        className={Styles.btnDelete}
+                        className={deleteDisabled ? Styles.disabled : Styles.btnDelete}
                         onClick={handleClickDeleteStudents}
                     >
                         删除

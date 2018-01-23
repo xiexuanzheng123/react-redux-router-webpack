@@ -8,8 +8,7 @@
         & .btnAdd, & .btnUpdate, & .btnDelete {
             @apply --wider-btn;
             display: inline-block;
-            height: 28px;
-            line-height: 28px;
+            line-height: 30px;
             text-decoration: none;
             margin-right: var(--margin-xs);
         },
@@ -17,8 +16,12 @@
             @apply --wider-btn-hover;
         },
         & .disabled {
+            @apply --wider-btn;
+            display: inline-block;
+            line-height: 30px;
             background-color: var(--btn-disabled-bg);
             color: var(--btn-disabled-color);
+            margin-right: var(--margin-xs);
             cursor: not-allowed;
             & .hover {
                 background-color: var(--btn-disabled-bg);
