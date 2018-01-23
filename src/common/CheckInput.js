@@ -16,6 +16,7 @@ const CheckInput = (
     return (
         <div>
             <input
+                type='checkbox'
                 id={id}
                 name={name}
                 value={value}

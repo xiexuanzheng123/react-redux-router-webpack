@@ -28,6 +28,7 @@ class StudentList extends React.Component {
                     <table className={Styles.listTable}>
                         <thead>
                             <tr>
+                                <th></th>
                                 <th className={Styles.name}>名字</th>
                                 <th className={Styles.age}>年龄</th>
                                 <th className={Styles.sex}>性别</th>

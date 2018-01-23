@@ -1,7 +1,7 @@
 @import '../common/variables.css';
 
 .wrap {
-    width: 60%;
+    width: 80%;
     margin: 60px auto;
     & .title {
         color: green;
@@ -39,10 +39,10 @@
                     width: 10%;
                 }
                 & .hobby {
-                    width: 20%;
+                    width: 30%;
                 }
                 & .profile {
-                    width: 40%
+                    width: 30%
                 }
             }
         }
