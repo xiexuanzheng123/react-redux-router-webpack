@@ -1,8 +1,7 @@
 @import '../common/variables.css';
 
 .topNav {
-    padding: var(--padding-xs);
-    margin-top: 20px;
+    margin: 10px 0;
     overflow: hidden;
     & .topBtns {
         float: left;

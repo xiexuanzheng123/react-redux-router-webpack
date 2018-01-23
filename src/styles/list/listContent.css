@@ -1,8 +1,16 @@
 @import '../common/variables.css';
 
 tr {
-    margin-top: var(--margin-xs);
+    border-bottom: 1px solid #ccc;
     & td {
         text-align: center;
-     }
+        padding: var(--padding-md) 0;
+    },
+    & td:last-child {
+        color: #ec741c;
+        font-size: 12px;
+        font-family: "Open Sans", sans-serif;
+        font-style: italic;
+    }
+
 }

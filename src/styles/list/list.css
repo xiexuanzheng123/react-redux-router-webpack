@@ -8,11 +8,10 @@
         font-size: var(--font-lg);
         border-bottom: 2px solid var(--grey-light);
         padding-bottom: var(--margin-xs);
-        margin-bottom: var(--margin-xs);
     }
     & .mainList {
         width: 100%;
-        margin: 20px auto;
+        margin-bottom: 10px;
         & .listTable {
             border-collapse: collapse;
             width: 100%;
