@@ -42,3 +42,17 @@ export function deleteStudents (studentIds) {
         studentIds
     }
 }
+/**search student */
+export function searchStudent (keyWord) {
+    return {
+        type: types.SEARCH_STUDENT,
+        keyWord
+    }
+}
+/**edit the keyword */
+export function editKeyWord (value) {
+    return {
+        type: types.EDIT_KEYWORD,
+        value
+    }
+}

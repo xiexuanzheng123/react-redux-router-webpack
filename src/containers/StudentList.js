@@ -15,6 +15,8 @@ class StudentList extends React.Component {
         this.handleClickAdd = this.handleClickAdd.bind(this);
         this.handleSelectStudent = this.handleSelectStudent.bind(this);
         this.handleClickDeleteStudents = this.handleClickDeleteStudents.bind(this);
+        this.handleClickSearch = this.handleClickSearch.bind(this);
+        this.handleEditKeyWord = this.handleEditKeyWord.bind(this);
     }
     handleClickAdd () {
         const { history } = this.props;
@@ -28,6 +30,15 @@ class StudentList extends React.Component {
         const { actions, studentChecked } = this.props;
         actions.deleteStudents(studentChecked);
     }
+    handleClickSearch () {
+        const { actions, keyWord, history } = this.props;
+        actions.searchStudent(keyWord);
+        history.push(`/StudentList?keyWord=${keyWord}`);
+    }
+    handleEditKeyWord (e) {
+        const { actions } = this.props;
+        actions.editKeyWord(e.target.value);
+    }
     render () {
         const { students, studentChecked } = this.props;
         return (
@@ -35,6 +46,9 @@ class StudentList extends React.Component {
                 <h2 className={Styles.title}>学生列表</h2>
                 <ListButtonNav 
                     handleClickDeleteStudents={this.handleClickDeleteStudents}
+                    handleClickSearch={this.handleClickSearch}
+                    handleEditKeyWord={this.handleEditKeyWord}
+                    studentChecked={studentChecked}
                 />
                 <div className={Styles.mainList}>
                     <table className={Styles.listTable}>
@@ -73,7 +87,8 @@ class StudentList extends React.Component {
 const mapStateToProps = (state, ownProps) => {
     return {
         students: state.students,
-        studentChecked: state.studentChecked
+        studentChecked: state.studentChecked,
+        keyWord: state.keyWord
     }
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
