@@ -31,7 +31,14 @@ export function editSex (sex) {
 /**select student */
 export function selectStudent (studentId) {
     return {
-        type: types.SELECT_STUDENT,
+        type: types.UPDATE_STUDENT_CHECKED,
         studentId
+    }
+}
+/**delete student */
+export function deleteStudents (studentIds) {
+    return {
+        type: types.DELETE_STUDENT,
+        studentIds
     }
 }

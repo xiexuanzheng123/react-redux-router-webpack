@@ -14,6 +14,7 @@ class StudentList extends React.Component {
         super(props);
         this.handleClickAdd = this.handleClickAdd.bind(this);
         this.handleSelectStudent = this.handleSelectStudent.bind(this);
+        this.handleClickDeleteStudents = this.handleClickDeleteStudents.bind(this);
     }
     handleClickAdd () {
         const { history } = this.props;
@@ -23,12 +24,18 @@ class StudentList extends React.Component {
         const { actions } = this.props;
         actions.selectStudent(e.target.id);
     }
+    handleClickDeleteStudents () {
+        const { actions, studentChecked } = this.props;
+        actions.deleteStudents(studentChecked);
+    }
     render () {
         const { students, studentChecked } = this.props;
         return (
             <div className={Styles.wrap}>
                 <h2 className={Styles.title}>学生列表</h2>
-                <ListButtonNav />
+                <ListButtonNav 
+                    handleClickDeleteStudents={this.handleClickDeleteStudents}
+                />
                 <div className={Styles.mainList}>
                     <table className={Styles.listTable}>
                         <thead>
@@ -48,6 +55,7 @@ class StudentList extends React.Component {
                                     return (
                                         <StudentContent
                                             handleSelectStudent={this.handleSelectStudent}
+                                            handleClickDeleteStudents={this.handleClickDeleteStudents}
                                             studentChecked={studentChecked} 
                                             student={student}
                                             key={key}

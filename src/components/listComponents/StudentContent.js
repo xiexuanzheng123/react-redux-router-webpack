@@ -5,7 +5,11 @@ import { listContentStyles as Styles } from '../../styles/list';
 
 class StudentContent extends React.Component {
     render () {
-        const { student, studentChecked, handleSelectStudent } = this.props;
+        const { 
+            student, 
+            studentChecked, 
+            handleSelectStudent
+        } = this.props;
         const { 
             id, 
             name, 
