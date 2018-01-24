@@ -1,5 +1,10 @@
 import React from 'react';
-import { TextInput, SelectInput, RadioInput } from '../../common';
+import { 
+    TextInput, 
+    SelectInput, 
+    RadioInput, 
+    CheckInput 
+} from '../../common';
 import { messageStyles as Styles } from '../../styles/student';
 
 class StudentMessage extends React.Component {    
@@ -14,7 +19,9 @@ class StudentMessage extends React.Component {
             handleEditName, 
             handleEditAge, 
             handleEditSex,
-            student 
+            handleCheckHobby,
+            student,
+            uHobby 
         } = this.props;
         let options = this.setOptions(15, 25);
         let sexOptions = ['male', 'female'];
@@ -23,7 +30,7 @@ class StudentMessage extends React.Component {
             age, 
             sex, 
             major, 
-            hobby, 
+            hobbies, 
             profile 
         } = student;
         return (
@@ -81,8 +88,29 @@ class StudentMessage extends React.Component {
                             name={'student_major'}
                             value={major}
                             placehoder={'请输入专业...'}
-                            onChange={(e) => handleEditName(e)} 
+                            onChange={handleEditName} 
                         />
+                    </div>    
+                </div>
+                <div className={Styles.items + ' ' + Styles.clearfix}>
+                    <label className={Styles.label}>兴趣爱好</label>
+                    <div className={Styles.value}>
+                        {
+                            _.map(uHobby, (hobby, key) => {
+                                return (
+                                    <CheckInput
+                                        key={key}
+                                        id={`hobby_${hobby}`}
+                                        name={`hobby`}
+                                        value={hobby}
+                                        label={hobby}
+                                        checked={_.includes(hobbies, hobby) ? true : false}
+                                        onChange={handleCheckHobby} 
+                                    />
+                                );
+                            })
+                        }
+                        
                     </div>    
                 </div>
             </div>

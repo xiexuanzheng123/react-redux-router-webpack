@@ -5,7 +5,7 @@ const students = [
         age: 24,
         sex: 'male',
         major: 'automation',
-        hobby: ['basketball', 'game'],
+        hobbies: ['swim', 'game'],
         profile: 'Though I am just a virtual boy, I also want to bring warm to my frinds !!'
     },{
         id: '1',
@@ -13,7 +13,7 @@ const students = [
         age: 22,
         sex: 'female',
         major: 'Economic',
-        hobby: ['movie', ],
+        hobbies: ['movie', ],
         profile: 'I think John is a warm boy, I like him ^_^'
     },{
         id: '2',
@@ -21,7 +21,7 @@ const students = [
         age: 20,
         sex: 'female',
         major: 'English',
-        hobby: ['piano', 'music', 'game'],
+        hobbies: ['piano', 'music', 'game'],
         profile: 'Shall we go to swimming ?'
     },{
         id: '3',
@@ -29,7 +29,7 @@ const students = [
         age: 19,
         sex: 'male',
         major: 'Philosophy',
-        hobby: ['basketball', 'movie'],
+        hobbies: ['swim', 'movie'],
         profile: 'Emm... as we all know, this profile is fake'
     }
 ]

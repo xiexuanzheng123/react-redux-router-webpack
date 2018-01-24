@@ -18,6 +18,7 @@ class Student extends React.Component {
         this.handleEditName = this.handleEditName.bind(this);
         this.handleEditAge = this.handleEditAge.bind(this);
         this.handleEditSex = this.handleEditSex.bind(this);
+        this.handleCheckHobby = this.handleCheckHobby.bind(this);
     }
     handleEditName (e) {
         const { actions } = this.props;
@@ -39,15 +40,21 @@ class Student extends React.Component {
     handleClickCancel () {
         alert('cancel');
     }
+    handleCheckHobby (e) {
+        const { actions } = this.props;
+        actions.checkHobby(e.target.value);
+    }
     render () {
-        const { student } = this.props;
+        const { student, uHobby } = this.props;
         return (
             <div className={Styles.wrap}>
                 <StudentMessage
-                    student={student} 
+                    student={student}
+                    uHobby={uHobby} 
                     handleEditName={this.handleEditName}
                     handleEditAge={this.handleEditAge} 
-                    handleEditSex={this.handleEditSex}     
+                    handleEditSex={this.handleEditSex}
+                    handleCheckHobby={this.handleCheckHobby}     
                 />
                 <Buttons 
                     handleClickConfirm={this.handleClickConfirm}
@@ -59,7 +66,8 @@ class Student extends React.Component {
 }
 const mapStateToProps = (state) => {
     return {
-        student: state.student
+        student: state.student,
+        uHobby: state.uHobby
     }
 }
 const mapDispatchToProps = (dispatch) => {

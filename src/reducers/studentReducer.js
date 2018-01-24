@@ -10,6 +10,8 @@ const studentReducer = (state=student, action) => {
             return fromJS(state).setIn(['age'], action.age).toJS();
         case types.EDIT_SEX:
             return fromJS(state).setIn(['sex'], action.sex).toJS();
+        case types.CHECK_HOBBY:
+            return fromJS(state).setIn(['hobbies'], _.xor(state.hobbies, [action.hobby])).toJS();
         default:    
             return state;
     }

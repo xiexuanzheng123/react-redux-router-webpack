@@ -16,7 +16,7 @@ class StudentContent extends React.Component {
             age, 
             sex,
             major,
-            hobby,
+            hobbies,
             profile
          } = student;
         return (
@@ -34,7 +34,7 @@ class StudentContent extends React.Component {
                 <td>{age}</td>
                 <td>{sex}</td>
                 <td>{major}</td>
-                <td>{hobby.join(', ')}</td>
+                <td>{hobbies.join(', ')}</td>
                 <td>{profile}</td>
             </tr>
         )

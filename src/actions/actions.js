@@ -56,3 +56,10 @@ export function editKeyWord (value) {
         value
     }
 }
+/**check hobby */
+export function checkHobby (hobby) {
+    return {
+        type: types.CHECK_HOBBY,
+        hobby
+    }
+}
