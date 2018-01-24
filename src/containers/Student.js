@@ -19,6 +19,9 @@ class Student extends React.Component {
         this.handleEditAge = this.handleEditAge.bind(this);
         this.handleEditSex = this.handleEditSex.bind(this);
         this.handleCheckHobby = this.handleCheckHobby.bind(this);
+        this.handleEditProfile = this.handleEditProfile.bind(this);
+        this.handleEditMajor = this.handleEditMajor.bind(this);
+        this.initStudent = this.initStudent.bind(this);
     }
     handleEditName (e) {
         const { actions } = this.props;
@@ -37,12 +40,25 @@ class Student extends React.Component {
         actions.addStudent(student);
         history.push('./');
     }
+    handleEditMajor (e) {
+        const { actions } = this.props;
+        actions.editMajor(e.target.value);
+    }
     handleClickCancel () {
-        alert('cancel');
+        const { history } = this.props;
+        history.push('./StudentList');
     }
     handleCheckHobby (e) {
         const { actions } = this.props;
         actions.checkHobby(e.target.value);
+    }
+    handleEditProfile (e) {
+        const { actions } = this.props;
+        actions.editProfile(e.target.value);
+    }
+    initStudent() {
+        const { actions } = this.props;
+        actions.initStudent();
     }
     render () {
         const { student, uHobby } = this.props;
@@ -51,10 +67,13 @@ class Student extends React.Component {
                 <StudentMessage
                     student={student}
                     uHobby={uHobby} 
+                    initStudent={this.initStudent}
                     handleEditName={this.handleEditName}
                     handleEditAge={this.handleEditAge} 
                     handleEditSex={this.handleEditSex}
-                    handleCheckHobby={this.handleCheckHobby}     
+                    handleEditMajor={this.handleEditMajor}
+                    handleCheckHobby={this.handleCheckHobby}
+                    handleEditProfile={this.handleEditProfile}     
                 />
                 <Buttons 
                     handleClickConfirm={this.handleClickConfirm}

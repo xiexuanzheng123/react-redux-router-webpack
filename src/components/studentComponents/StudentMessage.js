@@ -7,7 +7,11 @@ import {
 } from '../../common';
 import { messageStyles as Styles } from '../../styles/student';
 
-class StudentMessage extends React.Component {    
+class StudentMessage extends React.Component {
+    componentDidMount() {
+        const { initStudent } = this.props;
+        initStudent();
+    }    
     setOptions(mix, max, options=[]) {
         for (let i=mix; i<=max; i++) {
             options.push({'key': i, 'value': i});
@@ -19,7 +23,9 @@ class StudentMessage extends React.Component {
             handleEditName, 
             handleEditAge, 
             handleEditSex,
+            handleEditMajor,
             handleCheckHobby,
+            handleEditProfile,
             student,
             uHobby 
         } = this.props;
@@ -33,6 +39,9 @@ class StudentMessage extends React.Component {
             hobbies, 
             profile 
         } = student;
+        let uName = name || '';
+        let uAge = age || 15;
+        let uMajor = major || '';
         return (
             <div className={Styles.message}>
                 <h3 className={Styles.title}>添 加 新 生</h3>
@@ -42,7 +51,7 @@ class StudentMessage extends React.Component {
                         <TextInput
                             id={'student_name'}
                             name={'student_name'}
-                            value={name}
+                            value={uName}
                             placehoder={'请输入姓名...'}
                             onChange={(e) => handleEditName(e)} 
                         />
@@ -54,7 +63,7 @@ class StudentMessage extends React.Component {
                         <SelectInput 
                             id={`age_select`}
                             name={`age_select`}
-                            value={age}
+                            value={uAge}
                             onChange={handleEditAge}
                             options={options}
                         />
@@ -86,9 +95,9 @@ class StudentMessage extends React.Component {
                         <TextInput
                             id={'student_major'}
                             name={'student_major'}
-                            value={major}
+                            value={uMajor}
                             placehoder={'请输入专业...'}
-                            onChange={handleEditName} 
+                            onChange={handleEditMajor} 
                         />
                     </div>    
                 </div>
@@ -115,7 +124,11 @@ class StudentMessage extends React.Component {
                 <div className={Styles.items + ' ' + Styles.clearfix}>
                     <label className={Styles.label}>个人简介</label>
                     <div className={Styles.value}>
-                        <textarea className={Styles.textArea}>
+                        <textarea 
+                            className={Styles.textArea}
+                            value={profile}  
+                            onChange={handleEditProfile}  
+                        >
 
                         </textarea>
                     </div>    

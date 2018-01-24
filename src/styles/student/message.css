@@ -17,7 +17,7 @@
     & .items {
         position: relative;
         border-top: 2px solid var(--black-light);
-        background-color: var(--grey-light);
+        background-color: var(--grey-lighter);
         & .label {
             width: 20%;
             text-align: center;

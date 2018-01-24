@@ -7,3 +7,6 @@ export const DELETE_STUDENT = 'DELETE_STUDENT';
 export const SEARCH_STUDENT = 'SEARCH_STUDENT';
 export const EDIT_KEYWORD = 'EDIT_KEYWORD';
 export const CHECK_HOBBY = 'CHECK_HOBBY';
+export const EDIT_PROFILE = 'EDIT_PROFILE';
+export const EDIT_MAJOR = 'EDIT_MAJOR';
+export const INIT_STUDENT = 'INIT_STUDENT';

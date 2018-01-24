@@ -10,10 +10,25 @@ const studentReducer = (state=student, action) => {
             return fromJS(state).setIn(['age'], action.age).toJS();
         case types.EDIT_SEX:
             return fromJS(state).setIn(['sex'], action.sex).toJS();
+        case types.EDIT_MAJOR:
+            return fromJS(state).setIn(['major'], action.major).toJS();
         case types.CHECK_HOBBY:
             return fromJS(state).setIn(['hobbies'], _.xor(state.hobbies, [action.hobby])).toJS();
+        case types.EDIT_PROFILE:
+            return fromJS(state).setIn(['profile'], action.text).toJS();
+        case types.INIT_STUDENT:
+            return initStudent(state, action);
         default:    
             return state;
     }
+}
+function initStudent (state, action) {
+    return fromJS(state).setIn(['name'], '')
+                        .setIn(['age'], 15)
+                        .setIn(['sex'], '')
+                        .setIn(['major'], '')
+                        .setIn(['hobbies'], [])
+                        .setIn(['profile'], '')
+                        .toJS();
 }
 export default studentReducer;

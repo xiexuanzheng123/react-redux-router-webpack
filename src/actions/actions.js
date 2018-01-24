@@ -63,3 +63,21 @@ export function checkHobby (hobby) {
         hobby
     }
 }
+export function editProfile (text) {
+    return {
+        type: types.EDIT_PROFILE,
+        text
+    }
+}
+/**Edit major */
+export function editMajor (major) {
+    return {
+        type: types.EDIT_MAJOR,
+        major
+    }
+}
+export function initStudent () {
+    return {
+        type: types.INIT_STUDENT
+    }
+}

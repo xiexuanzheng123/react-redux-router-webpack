@@ -6,7 +6,7 @@ import _ from 'lodash';
 const studentsReducer = (state = students, action) => {
     switch (action.type) {
         case types.ADD_STUDENT:
-            return List(state).push(action.student).toJS();
+            return addStudent(state, action);
         case types.DELETE_STUDENT:
             return deleteStudents (state, action);
         case types.SEARCH_STUDENT:
@@ -15,6 +15,11 @@ const studentsReducer = (state = students, action) => {
             return state;
     }
 };
+function addStudent (state, action) {
+    const lastIndex = state.length - 1;
+    const studentToAdd = _.assign({id: String(lastIndex + 1)}, action.student);
+    return _.union(state, [studentToAdd]);
+}
 function deleteStudents (state, action) {
     return _.filter(state, s => !_.includes(action.studentIds, s.id));
 }
