@@ -11,4 +11,12 @@
         text-decoration: none;
         margin-right: var(--margin-lg);
     }
+    & .btnConfirm {
+        background-color: var(--blue);
+        color: var(--white);
+    }
+    & .btnCancel {
+        background-color: var(--grey);
+        color: var(--white);
+    }
 }
