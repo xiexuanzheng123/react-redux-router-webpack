@@ -53,6 +53,15 @@
                     
                 }
             }
+            & .textArea {
+                margin-top: 3px;
+                width: 60%;
+                height: 80px;
+            }
         }
+    }
+    & .items:last-child {
+        height: auto;
+        border-bottom: 2px solid var(--black);
     }
 }

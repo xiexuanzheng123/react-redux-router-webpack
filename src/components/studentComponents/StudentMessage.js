@@ -110,7 +110,14 @@ class StudentMessage extends React.Component {
                                 );
                             })
                         }
-                        
+                    </div>    
+                </div>
+                <div className={Styles.items + ' ' + Styles.clearfix}>
+                    <label className={Styles.label}>个人简介</label>
+                    <div className={Styles.value}>
+                        <textarea className={Styles.textArea}>
+
+                        </textarea>
                     </div>    
                 </div>
             </div>
