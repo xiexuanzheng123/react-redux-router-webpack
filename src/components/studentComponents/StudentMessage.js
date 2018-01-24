@@ -11,12 +11,6 @@ class StudentMessage extends React.Component {
     componentDidMount() {
         const { initStudent } = this.props;
         initStudent();
-    }    
-    setOptions(mix, max, options=[]) {
-        for (let i=mix; i<=max; i++) {
-            options.push({'key': i, 'value': i});
-        }
-        return options;
     }
     render() {
         const { 
@@ -28,9 +22,9 @@ class StudentMessage extends React.Component {
             handleEditProfile,
             student,
             uHobby,
-            uSex 
+            uSexes,
+            uAges 
         } = this.props;
-        let options = this.setOptions(15, 25);
         const { 
             name, 
             age, 
@@ -46,7 +40,7 @@ class StudentMessage extends React.Component {
             <div className={Styles.message}>
                 <h3 className={Styles.title}>添 加 新 生</h3>
                 <div className={Styles.items  + ' ' + Styles.clearfix}>
-                    <label className={Styles.label}>名 字<span>*</span></label>
+                    <label className={Styles.label}>名 字<span className={Styles.star}>*</span></label>
                     <div className={Styles.value}>
                         <TextInput
                             id={'student_name'}
@@ -58,22 +52,22 @@ class StudentMessage extends React.Component {
                     </div>
                 </div>
                 <div className={Styles.items + ' ' + Styles.clearfix}>
-                    <label className={Styles.label}>年 龄<span>*</span></label>
+                    <label className={Styles.label}>年 龄<span className={Styles.star}>*</span></label>
                     <div className={Styles.value}>
                         <SelectInput 
                             id={`age_select`}
                             name={`age_select`}
                             value={uAge}
                             onChange={handleEditAge}
-                            options={options}
+                            options={uAges}
                         />
                     </div>
                 </div>
                 <div className={Styles.items + ' ' + Styles.clearfix}>
-                    <label className={Styles.label}>性 别<span>*</span></label>
+                    <label className={Styles.label}>性 别<span className={Styles.star}>*</span></label>
                     <div className={Styles.value}>
                         {
-                            uSex.map((sexOption, key) => {
+                            uSexes.map((sexOption, key) => {
                                 return (
                                     <RadioInput 
                                         id={`sex_radio_${sexOption}`}
