@@ -55,14 +55,14 @@
                 & input {
                     vertical-align: -2px;
                     width: 14px;
-                    height: 14px;
-                    
+                    height: 14px;  
                 }
             }
             & .textArea {
                 margin-top: 3px;
                 width: 63%;
                 height: 80px;
+
             }
         }
     }
