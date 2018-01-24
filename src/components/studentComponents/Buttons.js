@@ -1,21 +1,27 @@
 import React from 'react';
+import { buttonsStyles as Styles } from '../../styles/student';
 
 class Buttons extends React.Component {
     render () {
-        const { handleClickConfirm, handleClickCancel } = this.props;
+        const { 
+            handleClickConfirm, 
+            handleClickCancel 
+        } = this.props;
         return (
-            <div>
+            <div className={Styles.subButtons}>
                 <a 
+                    className={Styles.btnConfirm}
                     href="javascript: void(0)" 
                     onClick={handleClickConfirm}
                 >
-                    Confirm
+                    确定
                 </a>
                 <a 
+                    className={Styles.btnCancel}
                     href="javascript: void(0)" 
                     onClick={handleClickCancel}
                 >
-                    Cancel
+                    取消
                 </a>
             </div>
         )
