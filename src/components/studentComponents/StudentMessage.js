@@ -27,10 +27,10 @@ class StudentMessage extends React.Component {
             handleCheckHobby,
             handleEditProfile,
             student,
-            uHobby 
+            uHobby,
+            uSex 
         } = this.props;
         let options = this.setOptions(15, 25);
-        let sexOptions = ['male', 'female'];
         const { 
             name, 
             age, 
@@ -73,7 +73,7 @@ class StudentMessage extends React.Component {
                     <label className={Styles.label}>性 别<span>*</span></label>
                     <div className={Styles.value}>
                         {
-                            sexOptions.map((sexOption, key) => {
+                            uSex.map((sexOption, key) => {
                                 return (
                                     <RadioInput 
                                         id={`sex_radio_${sexOption}`}
@@ -129,7 +129,6 @@ class StudentMessage extends React.Component {
                             value={profile}  
                             onChange={handleEditProfile}  
                         >
-
                         </textarea>
                     </div>    
                 </div>

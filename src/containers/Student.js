@@ -68,12 +68,13 @@ class Student extends React.Component {
         actions.initStudent();
     }
     render () {
-        const { student, uHobby } = this.props;
+        const { student, uHobby, uSex } = this.props;
         return (
             <div className={Styles.wrap}>
                 <StudentMessage
                     student={student}
-                    uHobby={uHobby} 
+                    uHobby={uHobby}
+                    uSex={uSex} 
                     initStudent={this.initStudent}
                     handleEditName={this.handleEditName}
                     handleEditAge={this.handleEditAge} 
@@ -93,7 +94,8 @@ class Student extends React.Component {
 const mapStateToProps = (state) => {
     return {
         student: state.student,
-        uHobby: state.uHobby
+        uHobby: state.uHobby,
+        uSex: state.uSex
     }
 }
 const mapDispatchToProps = (dispatch) => {
