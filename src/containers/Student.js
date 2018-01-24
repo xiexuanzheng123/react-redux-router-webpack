@@ -8,6 +8,7 @@ import {
     StudentMessage, 
     Buttons 
 } from '../components/studentComponents';
+import { mainPageStyles as Styles } from '../styles/student';
 
 class Student extends React.Component {
     constructor(props) {
@@ -41,7 +42,7 @@ class Student extends React.Component {
     render () {
         const { student } = this.props;
         return (
-            <div>
+            <div className={Styles.wrap}>
                 <StudentMessage
                     student={student} 
                     handleEditName={this.handleEditName}

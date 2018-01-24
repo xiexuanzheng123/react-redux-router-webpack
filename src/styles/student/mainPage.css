@@ -1,0 +1,6 @@
+@import '../common/variables.css';
+
+.wrap {
+    width: 70%;
+    margin: 60px auto;
+}

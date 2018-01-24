@@ -1,5 +1,6 @@
 import React from 'react';
 import { TextInput, SelectInput, RadioInput } from '../../common';
+import { messageStyles as Styles } from '../../styles/student';
 
 class StudentMessage extends React.Component {    
     setOptions(mix, max, options=[]) {
@@ -17,30 +18,44 @@ class StudentMessage extends React.Component {
         } = this.props;
         let options = this.setOptions(15, 25);
         let sexOptions = ['male', 'female'];
-        const { name, age, sex } = student;
+        const { 
+            name, 
+            age, 
+            sex, 
+            major, 
+            hobby, 
+            profile 
+        } = student;
         return (
-            <div>
-                <h3>添加新生:</h3>
-                <label>名字:
-                    <TextInput
-                        id={'student_name'}
-                        name={'student_name'}
-                        value={name}
-                        placehoder={'Please input name...'}
-                        onChange={(e) => handleEditName(e)} 
-                    />
-                </label><br />
-                <label>年龄：
-                    <SelectInput 
-                        id={`age_select`}
-                        name={`age_select`}
-                        value={age}
-                        onChange={handleEditAge}
-                        options={options}
-                    />
-                </label><br />
-                <label>性别：
-                    <div>
+            <div className={Styles.message}>
+                <h3 className={Styles.title}>添 加 新 生</h3>
+                <div className={Styles.items  + ' ' + Styles.clearfix}>
+                    <label className={Styles.label}>名 字<span>*</span></label>
+                    <div className={Styles.value}>
+                        <TextInput
+                            id={'student_name'}
+                            name={'student_name'}
+                            value={name}
+                            placehoder={'请输入姓名...'}
+                            onChange={(e) => handleEditName(e)} 
+                        />
+                    </div>
+                </div>
+                <div className={Styles.items + ' ' + Styles.clearfix}>
+                    <label className={Styles.label}>年 龄<span>*</span></label>
+                    <div className={Styles.value}>
+                        <SelectInput 
+                            id={`age_select`}
+                            name={`age_select`}
+                            value={age}
+                            onChange={handleEditAge}
+                            options={options}
+                        />
+                    </div>
+                </div>
+                <div className={Styles.items + ' ' + Styles.clearfix}>
+                    <label className={Styles.label}>性 别<span>*</span></label>
+                    <div className={Styles.value}>
                         {
                             sexOptions.map((sexOption, key) => {
                                 return (
@@ -57,7 +72,19 @@ class StudentMessage extends React.Component {
                             })
                         }
                     </div>
-                </label>
+                </div>
+                <div className={Styles.items + ' ' + Styles.clearfix}>
+                    <label className={Styles.label}>专 业</label>
+                    <div className={Styles.value}>
+                        <TextInput
+                            id={'student_major'}
+                            name={'student_major'}
+                            value={major}
+                            placehoder={'请输入专业...'}
+                            onChange={(e) => handleEditName(e)} 
+                        />
+                    </div>    
+                </div>
             </div>
         )
     }

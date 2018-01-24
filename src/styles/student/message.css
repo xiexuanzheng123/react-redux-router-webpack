@@ -1,0 +1,57 @@
+@import '../common/variables.css';
+
+.clearfix:after {
+    content: '.';
+    display: block;
+    height: 0;
+    clear: both;
+    visiability: hidden
+}
+.message {
+    width: 90%;
+    & .title {
+        color: #339fff;
+        border-bottom: 2px solid var(--grey);
+        padding-bottom: var(--padding-xs);
+    },
+    & .items {
+        position: relative;
+        border-top: 2px solid var(--black-light);
+        background-color: var(--grey-light);
+        & .label {
+            width: 20%;
+            text-align: center;
+            float: left;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            display: block;
+        },
+        & .value {
+            padding: 5px;
+            float: right;
+            width: 80%;
+            box-sizing: border-box;
+            padding-left: 20px;
+            background-color: var(--white); 
+            & input {
+                height: 20px;
+                width: 30%;
+            }
+            & select {
+                height: 26px;
+                width: 30%;
+            }
+            & div {
+                width: 15%;
+                display: inline-block;
+                & input {
+                    vertical-align: -3px;
+                    margin-top: 3px;
+                    width: 16px;
+                    height: 16px;
+                }
+            }
+        }
+    }
+}
