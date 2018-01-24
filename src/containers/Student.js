@@ -9,7 +9,8 @@ import {
     Buttons 
 } from '../components/studentComponents';
 import {
-    validateName
+    validateName,
+    validateSex
 } from '../validation';
 import { mainPageStyles as Styles } from '../styles/student';
 
@@ -40,11 +41,15 @@ class Student extends React.Component {
     }
     handleClickConfirm () {
         const { student, actions, history } = this.props;
-        if (validateName(student.name)) {
+        if (validateName(student.name) && validateSex(student.sex)) {
             actions.addStudent(student);
             history.push('./');
-        } else {
-            alert('请输入姓名！');
+        } else if (!validateName(student.name)) {
+            alert('请输入姓名 ！');
+            return false;
+        } else if (!validateSex(student.sex)) {
+            alert('请选择性别 ！');
+            return false;
         }
     }
     handleEditMajor (e) {
