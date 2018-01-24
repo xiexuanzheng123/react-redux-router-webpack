@@ -8,7 +8,7 @@ import colors from 'colors';
 import httpProxy from 'http-proxy';
 const proxy = httpProxy.createProxyServer();//创建一个代理
 
-const port = 3002;
+const port = 3012;
 const app = express();
 const compiler = webpack(config);
 

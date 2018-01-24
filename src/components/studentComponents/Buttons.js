@@ -5,7 +5,7 @@ class Buttons extends React.Component {
     render () {
         const { 
             handleClickConfirm, 
-            handleClickCancel 
+            handleClickCancel
         } = this.props;
         return (
             <div className={Styles.subButtons}>

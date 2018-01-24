@@ -8,6 +8,9 @@ import {
     StudentMessage, 
     Buttons 
 } from '../components/studentComponents';
+import {
+    validateName
+} from '../validation';
 import { mainPageStyles as Styles } from '../styles/student';
 
 class Student extends React.Component {
@@ -37,8 +40,12 @@ class Student extends React.Component {
     }
     handleClickConfirm () {
         const { student, actions, history } = this.props;
-        actions.addStudent(student);
-        history.push('./');
+        if (validateName(student.name)) {
+            actions.addStudent(student);
+            history.push('./');
+        } else {
+            alert('请输入姓名！');
+        }
     }
     handleEditMajor (e) {
         const { actions } = this.props;
