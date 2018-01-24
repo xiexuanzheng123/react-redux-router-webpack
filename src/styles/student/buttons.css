@@ -1,0 +1,14 @@
+@import '../common/variables.css';
+
+.subButtons {
+    margin: 40px auto;
+    text-align: center;
+    & .btnConfirm, & .btnCancel {
+        @apply --wider-btn;
+        display: inline-block;
+        height: 28px;
+        line-height: 28px;
+        text-decoration: none;
+        margin-right: var(--margin-lg);
+    }
+}
