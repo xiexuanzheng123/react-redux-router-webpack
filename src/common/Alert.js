@@ -10,7 +10,7 @@ class Alert extends React.Component {
             okText,
             okEvent
         } = this.props;
-
+        console.log(isShow, 'isShow');
         return (
             isShow ? <div className={Styles.container}>
                 <div className={Styles.popup}>

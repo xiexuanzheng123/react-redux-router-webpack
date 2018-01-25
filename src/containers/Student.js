@@ -12,6 +12,9 @@ import {
     validateName,
     validateSex
 } from '../validation';
+import {
+    Alert
+} from '../common';
 import { mainPageStyles as Styles } from '../styles/student';
 
 class Student extends React.Component {
@@ -45,11 +48,21 @@ class Student extends React.Component {
             actions.addStudent(student);
             history.push('./');
         } else if (!validateName(student.name)) {
-            alert('请输入姓名 ！');
-            return false;
+            actions.showAlert(
+                {
+                    message: '请输入名字!',
+                    okText: '确定',
+                    okEvent: actions.hideAlert
+                }
+            );
         } else if (!validateSex(student.sex)) {
-            alert('请选择性别 ！');
-            return false;
+            actions.showAlert(
+                {
+                    message: '请选择性别！',
+                    okText: '确定',
+                    okEvent: actions.hideAlert
+                }
+            )
         }
     }
     handleEditMajor (e) {
@@ -72,8 +85,11 @@ class Student extends React.Component {
         const { actions } = this.props;
         actions.initStudent();
     }
+    okEvent () {
+        this.setState({isShow: false});
+    }
     render () {
-        const { student, uHobby, uSexes, uAges } = this.props;
+        const { student, uHobby, uSexes, uAges, alert } = this.props;
         return (
             <div className={Styles.wrap}>
                 <StudentMessage
@@ -93,6 +109,9 @@ class Student extends React.Component {
                     handleClickConfirm={this.handleClickConfirm}
                     handleClickCancel={this.handleClickCancel}
                 />
+                <Alert 
+                   {...alert} 
+                />
             </div>
         ) 
     }
@@ -102,7 +121,8 @@ const mapStateToProps = (state) => {
         student: state.student,
         uHobby: state.uHobby,
         uSexes: state.uSexes,
-        uAges: state.uAges
+        uAges: state.uAges,
+        alert: state.alert
     }
 }
 const mapDispatchToProps = (dispatch) => {

@@ -76,8 +76,29 @@ export function editMajor (major) {
         major
     }
 }
+/** init the add page */
 export function initStudent () {
     return {
         type: types.INIT_STUDENT
+    }
+}
+/** show alert */
+export function showAlert (
+    {
+        message,
+        okText,
+        okEvent
+    }
+) {
+    return {
+        type: types.SHOW_ALERT,
+        message,
+        okText,
+        okEvent
+    }
+}
+export function hideAlert () {
+    return {
+       type: types.HIDE_ALERT
     }
 }

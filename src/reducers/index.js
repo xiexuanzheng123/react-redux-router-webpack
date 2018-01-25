@@ -6,6 +6,7 @@ import keyWord from './keyWordReducer';
 import uHobby from './uHobbyReducer';
 import uSexes from './uSexesReducer';
 import uAges from './uAgesReducer';
+import alert from './alertReducer';
 
 const rootReducer = combineReducers({
     students,
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
     keyWord,
     uHobby,
     uSexes,
-    uAges
+    uAges,
+    alert
 });
 export default rootReducer;
