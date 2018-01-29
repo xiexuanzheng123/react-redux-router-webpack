@@ -6,7 +6,7 @@ const students = [
         sex: 'male',
         major: 'automation',
         hobbies: ['swim', 'game'],
-        profile: 'Though I am just a virtual boy, I also want to bring warm to my frinds !!'
+        profile: 'Though I am just a virtual boy, I also want to bring warm to my friends !!'
     },{
         id: '1',
         name: 'Sally',

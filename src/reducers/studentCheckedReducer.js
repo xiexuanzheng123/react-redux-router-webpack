@@ -5,15 +5,15 @@ import _ from 'lodash';
 
 const studentCheckedReducer = (state=studentChecked, action) => {
     switch (action.type) {
-        case types.UPDATE_STUDENT_CHECKED:
-            return updateStudentChecked (state, action.studentId);
+        case types.GET_SELECTED_STUDENT_CHECKED:
+            return getSelectedStudentChecked (state, action.studentId);
         case types.INIT_LIST:
             return studentChecked;
         default:
             return state;
     }
 }
-function updateStudentChecked (state, studentId) {
+function getSelectedStudentChecked (state, studentId) {
     return _.xor(state, [studentId]);
 }
 export default studentCheckedReducer;

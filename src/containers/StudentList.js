@@ -21,6 +21,10 @@ class StudentList extends React.Component {
         this.handleClickAdd = this.handleClickAdd.bind(this);
         this.handleClickUpdate = this.handleClickUpdate.bind(this);
     }
+    componentDidMount () {
+        const { actions } = this.props;
+        actions.initList();
+    }
     handleClickAdd () {
         const { history } = this.props;
         history.push('./addStudent');
@@ -85,7 +89,7 @@ class StudentList extends React.Component {
                         </thead>
                         <tbody>
                             {
-                                students.map((student, key) => {
+                                _.map(students, (student, key) => {
                                     return (
                                         <StudentContent
                                             handleSelectStudent={this.handleSelectStudent}
@@ -94,7 +98,7 @@ class StudentList extends React.Component {
                                             student={student}
                                             key={key}
                                         />
-                                    )
+                                    );
                                 })
                             }
                         </tbody>

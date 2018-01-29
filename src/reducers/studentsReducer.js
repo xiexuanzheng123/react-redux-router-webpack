@@ -1,6 +1,6 @@
 import students from '../models/students';
 import * as types from '../actions/actionTypes';
-import { List } from 'immutable'; 
+import { formJS, List } from 'immutable'; 
 import _ from 'lodash';
 
 const studentsReducer = (state = students, action) => {
@@ -11,6 +11,8 @@ const studentsReducer = (state = students, action) => {
             return deleteStudents (state, action);
         case types.SEARCH_STUDENT:
             return searchStudent (state, action);
+        case types.UPDATE_STUDENT:
+            return updateStudent(state, action);
         default:
             return state;
     }
@@ -28,5 +30,9 @@ function searchStudent (state, action) {
         return state=students;
     }
     return _.filter(state, s => s.name === action.keyWord);
+}
+function updateStudent (state, action) {
+    const { id } = action;
+    return List(state).delete(Number(id)).insert(Number(id), action.student).toJS();
 }
 export default studentsReducer;

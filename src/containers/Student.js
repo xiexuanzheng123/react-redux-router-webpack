@@ -34,7 +34,7 @@ class Student extends React.Component {
     componentDidMount() {
         const { initStudent, actions, students } = this.props;
         const studentId = this.getStudentId('studentId');
-        actions.updateStudent(studentId, students);
+        actions.getSelectedStudent(studentId, students);
     }
     handleEditName (e) {
         const { actions } = this.props;
@@ -52,7 +52,8 @@ class Student extends React.Component {
         const { student, actions, history } = this.props;
         const isUpdate = student.id ? true : false;
         if (isUpdate) {
-
+            actions.updateStudent(student.id, student);
+            history.push('./');
         }
         if (validateName(student.name) && validateSex(student.sex) && !isUpdate) {
             actions.addStudent(student);

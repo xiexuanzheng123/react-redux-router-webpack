@@ -33,16 +33,16 @@ export function editSex (sex) {
         sex
     }
 }
-// export function selectAndUpdateStudent (studentId, students) {
+// export function selectAndgetSelectedStudent (studentId, students) {
 //     return (dispatch) => {
 //         dispatch(selectStudent (studentId));
-//         dispatch(updateStudent(studentId, students));
+//         dispatch(getSelectedStudent(studentId, students));
 //     }
 // }
 /**select student */
 export function selectStudent (studentId) {
     return {
-        type: types.UPDATE_STUDENT_CHECKED,
+        type: types.GET_SELECTED_STUDENT_CHECKED,
         studentId
     }
 }
@@ -143,10 +143,17 @@ export function hideConfirm () {
         type: types.HIDE_CONFIRM
     }
 }
-export function updateStudent (studentId, students) {
+export function getSelectedStudent (studentId, students) {
     return {
-        type: types.UPDATE_STUDENT,
+        type: types.GET_SELECTED_STUDENT,
         studentId,
         students
+    }
+}
+export function updateStudent (id, student) {
+    return {
+        type: types.UPDATE_STUDENT,
+        id,
+        student 
     }
 }
