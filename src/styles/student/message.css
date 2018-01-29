@@ -64,6 +64,9 @@
                 height: 80px;
             }
         }
+        & .dimmed input, & .dimmed select {
+            background-color: var(--grey-light);
+        }
     }
     & .items:last-child {
         height: auto;

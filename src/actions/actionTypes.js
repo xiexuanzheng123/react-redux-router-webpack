@@ -15,3 +15,4 @@ export const HIDE_ALERT = 'HIDE_ALERT';
 export const SHOW_CONFIRM = 'SHOW_CONFIRM';
 export const HIDE_CONFIRM = 'HIDE_CONFIRM';
 export const INIT_LIST = 'INIT_LIST';
+export const UPDATE_STUDENT = 'UPDATE_STUDENT';

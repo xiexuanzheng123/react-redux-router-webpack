@@ -8,10 +8,7 @@ import {
 import { messageStyles as Styles } from '../../styles/student';
 
 class StudentMessage extends React.Component {
-    componentDidMount() {
-        const { initStudent } = this.props;
-        initStudent();
-    }
+    
     render() {
         const { 
             handleEditName, 
@@ -25,27 +22,30 @@ class StudentMessage extends React.Component {
             uSexes,
             uAges 
         } = this.props;
-        const { 
+        let { 
             name, 
             age, 
             sex, 
             major, 
             hobbies, 
-            profile 
+            profile,
+            id 
         } = student;
         let uName = name || '';
         let uAge = age || 15;
         let uMajor = major || '';
+        const isUpdate = id ? true : false;
         return (
             <div className={Styles.message}>
                 <h3 className={Styles.title}>添 加 新 生</h3>
                 <div className={Styles.items  + ' ' + Styles.clearfix}>
                     <label className={Styles.label}>名 字<span className={Styles.star}>*</span></label>
-                    <div className={Styles.value}>
+                    <div className={Styles.value + ' ' + Styles.dimmed}>
                         <TextInput
                             id={'student_name'}
                             name={'student_name'}
                             value={uName}
+                            readOnly={isUpdate}
                             placehoder={'请输入姓名...'}
                             onChange={(e) => handleEditName(e)} 
                         />
@@ -53,11 +53,12 @@ class StudentMessage extends React.Component {
                 </div>
                 <div className={Styles.items + ' ' + Styles.clearfix}>
                     <label className={Styles.label}>年 龄<span className={Styles.star}>*</span></label>
-                    <div className={Styles.value}>
+                    <div className={Styles.value + ' ' + Styles.dimmed}>
                         <SelectInput 
                             id={`age_select`}
                             name={`age_select`}
                             value={uAge}
+                            disabled={isUpdate}
                             onChange={handleEditAge}
                             options={uAges}
                         />
@@ -75,6 +76,7 @@ class StudentMessage extends React.Component {
                                         label={sexOption}
                                         value={sexOption}
                                         key={key}
+                                        disabled={isUpdate}
                                         defaultValue={sex}
                                         onChange={handleEditSex}
                                     />

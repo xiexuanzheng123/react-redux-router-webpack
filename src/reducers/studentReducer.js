@@ -18,6 +18,8 @@ const studentReducer = (state=student, action) => {
             return fromJS(state).setIn(['profile'], action.text).toJS();
         case types.INIT_STUDENT:
             return initStudent(state, action);
+        case types.UPDATE_STUDENT:
+            return updateStudent(state, action);
         default:    
             return state;
     }
@@ -30,5 +32,8 @@ function initStudent (state, action) {
                         .setIn(['hobbies'], [])
                         .setIn(['profile'], '')
                         .toJS();
+}
+function updateStudent (state, action) {
+    return _.filter(action.students, (student) => student.id === action.studentId)[0];
 }
 export default studentReducer;

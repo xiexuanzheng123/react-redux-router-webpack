@@ -7,7 +7,6 @@ const TextInput = ({
     value,
     placehoder,
     onChange,
-    readonly,
     disabled
 }) => {
     return (
@@ -17,7 +16,6 @@ const TextInput = ({
             value={value}
             placeholder={placehoder}
             onChange={onChange}
-            readOnly={readonly}
             disabled={disabled}
         />
     );
@@ -28,7 +26,6 @@ TextInput.propTypes = {
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     placehoder: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     onChange: PropTypes.func,
-    readOnly: PropTypes.bool,
     disabled: PropTypes.bool
 }
 export default TextInput;

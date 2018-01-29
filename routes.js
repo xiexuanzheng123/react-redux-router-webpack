@@ -15,6 +15,7 @@ export default (
             <Route exact path="/" component={StudentList} />
             <Route exact path="/StudentList" component={StudentList} />
             <Route exact path="/addStudent" component={Student} />
+            <Route path="/Student" component={Student} />
         </Switch>
     </div>
 )

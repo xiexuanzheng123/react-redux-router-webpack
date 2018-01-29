@@ -29,6 +29,12 @@ class Student extends React.Component {
         this.handleEditProfile = this.handleEditProfile.bind(this);
         this.handleEditMajor = this.handleEditMajor.bind(this);
         this.initStudent = this.initStudent.bind(this);
+        this.getStudentId = this.getStudentId.bind(this);
+    }
+    componentDidMount() {
+        const { initStudent, actions, students } = this.props;
+        const studentId = this.getStudentId('studentId');
+        actions.updateStudent(studentId, students);
     }
     handleEditName (e) {
         const { actions } = this.props;
@@ -44,7 +50,11 @@ class Student extends React.Component {
     }
     handleClickConfirm () {
         const { student, actions, history } = this.props;
-        if (validateName(student.name) && validateSex(student.sex)) {
+        const isUpdate = student.id ? true : false;
+        if (isUpdate) {
+
+        }
+        if (validateName(student.name) && validateSex(student.sex) && !isUpdate) {
             actions.addStudent(student);
             history.push('./');
         } else if (!validateName(student.name)) {
@@ -88,15 +98,33 @@ class Student extends React.Component {
     okEvent () {
         this.setState({isShow: false});
     }
+    getStudentId (key, url) {
+        if (!url) {
+            url = window.location.href;
+        }
+        key = key.replace(/[[\]]/g, '\\$&');
+        let regex = new RegExp('[?&]' + key + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) {
+            return null;
+        }
+        if (!results[2]) {
+            return '';
+        }
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
     render () {
-        const { student, uHobby, uSexes, uAges, alert } = this.props;
+        const { student, uHobby, uSexes, uAges, alert, students, actions } = this.props;
         return (
             <div className={Styles.wrap}>
                 <StudentMessage
                     student={student}
                     uHobby={uHobby}
                     uSexes={uSexes}
-                    uAges={uAges} 
+                    uAges={uAges}
+                    actions={actions}
+                    students={students}
+                    getStudentId={this.getStudentId} 
                     initStudent={this.initStudent}
                     handleEditName={this.handleEditName}
                     handleEditAge={this.handleEditAge} 
@@ -118,6 +146,7 @@ class Student extends React.Component {
 }
 const mapStateToProps = (state) => {
     return {
+        students: state.students,
         student: state.student,
         uHobby: state.uHobby,
         uSexes: state.uSexes,

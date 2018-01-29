@@ -33,6 +33,12 @@ export function editSex (sex) {
         sex
     }
 }
+// export function selectAndUpdateStudent (studentId, students) {
+//     return (dispatch) => {
+//         dispatch(selectStudent (studentId));
+//         dispatch(updateStudent(studentId, students));
+//     }
+// }
 /**select student */
 export function selectStudent (studentId) {
     return {
@@ -135,5 +141,12 @@ export function showConfirm (
 export function hideConfirm () {
     return {
         type: types.HIDE_CONFIRM
+    }
+}
+export function updateStudent (studentId, students) {
+    return {
+        type: types.UPDATE_STUDENT,
+        studentId,
+        students
     }
 }
