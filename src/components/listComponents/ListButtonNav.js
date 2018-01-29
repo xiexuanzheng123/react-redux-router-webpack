@@ -9,7 +9,8 @@ class ListButtonNav extends React.Component {
             handleClickSearch,
             handleEditKeyWord,
             studentChecked,
-            handleClickAdd
+            handleClickAdd,
+            handleClickUpdate
         } = this.props;
         const updateDisabled = studentChecked.length === 1 ? true : false;
         const deleteDisabled = studentChecked.length === 0 ? true : false;
@@ -25,6 +26,7 @@ class ListButtonNav extends React.Component {
                     </a>
                     <a 
                         className={updateDisabled ? Styles.btnUpdate :  Styles.disabled}
+                        onClick={handleClickUpdate}
                     >
                         修改
                     </a>

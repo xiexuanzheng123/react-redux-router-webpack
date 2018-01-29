@@ -12,3 +12,6 @@ export const EDIT_MAJOR = 'EDIT_MAJOR';
 export const INIT_STUDENT = 'INIT_STUDENT';
 export const SHOW_ALERT = 'SHOW_ALERT';
 export const HIDE_ALERT = 'HIDE_ALERT';
+export const SHOW_CONFIRM = 'SHOW_CONFIRM';
+export const HIDE_CONFIRM = 'HIDE_CONFIRM';
+export const INIT_LIST = 'INIT_LIST';

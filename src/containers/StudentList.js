@@ -7,6 +7,7 @@ import {
     StudentContent, 
     ListButtonNav 
 } from '../components/listComponents';
+import { Confirm } from '../common';
 import { listStyles as Styles } from '../styles/list';
 
 class StudentList extends React.Component {
@@ -18,18 +19,30 @@ class StudentList extends React.Component {
         this.handleClickSearch = this.handleClickSearch.bind(this);
         this.handleEditKeyWord = this.handleEditKeyWord.bind(this);
         this.handleClickAdd = this.handleClickAdd.bind(this);
+        this.handleClickUpdate = this.handleClickUpdate.bind(this);
     }
     handleClickAdd () {
         const { history } = this.props;
         history.push('./addStudent');
+    }
+    handleClickUpdate() {
+        const { actions, studentChecked, history } = this.props;
+        history.push(`/Student?studentId=${studentChecked[0]}`);
     }
     handleSelectStudent (e) {
         const { actions } = this.props;
         actions.selectStudent(e.target.id);
     }
     handleClickDeleteStudents () {
-        const { actions, studentChecked } = this.props;
-        actions.deleteStudents(studentChecked);
+        const { actions, studentChecked, confirm } = this.props;
+        actions.showConfirm({
+            message: '确定删除？',
+            confirmEvent: () => { actions.deleteAndHideConfirm(studentChecked); () => actions.hideConfirm() },
+            cancelEvent: () => { actions.hideConfirm() },
+            cancelText: '取消',
+            okText: '确定'
+        });
+        //actions.deleteStudents(studentChecked);
     }
     handleClickSearch () {
         const { actions, keyWord, history } = this.props;
@@ -45,16 +58,17 @@ class StudentList extends React.Component {
         history.push('./AddStudent');
     }
     render () {
-        const { students, studentChecked } = this.props;
+        const { students, studentChecked, confirm } = this.props;
         return (
             <div className={Styles.wrap}>
                 <h2 className={Styles.title}>学生列表</h2>
-                <ListButtonNav 
+                <ListButtonNav
                     handleClickDeleteStudents={this.handleClickDeleteStudents}
                     handleClickSearch={this.handleClickSearch}
                     handleEditKeyWord={this.handleEditKeyWord}
                     studentChecked={studentChecked}
                     handleClickAdd={this.handleClickAdd}
+                    handleClickUpdate={this.handleClickUpdate}
                 />
                 <div className={Styles.mainList}>
                     <table className={Styles.listTable}>
@@ -86,6 +100,9 @@ class StudentList extends React.Component {
                         </tbody>
                     </table>
                 </div>
+                <Confirm 
+                    {...confirm}
+                />
             </div>
         )
     }
@@ -94,7 +111,8 @@ const mapStateToProps = (state, ownProps) => {
     return {
         students: state.students,
         studentChecked: state.studentChecked,
-        keyWord: state.keyWord
+        keyWord: state.keyWord,
+        confirm: state.confirm
     }
 }
 const mapDispatchToProps = (dispatch, ownProps) => {

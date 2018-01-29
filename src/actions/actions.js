@@ -7,6 +7,11 @@ export function addStudent (student) {
         student
     }
 }
+export function initList() {
+    return {
+        type: types.INIT_LIST
+    }
+}
 /**edit name */
 export function editName (name) {
     return {
@@ -33,6 +38,13 @@ export function selectStudent (studentId) {
     return {
         type: types.UPDATE_STUDENT_CHECKED,
         studentId
+    }
+}
+export function deleteAndHideConfirm (studentIds) {
+    return (dispatch) => { 
+        dispatch(deleteStudents(studentIds)); 
+        dispatch(hideConfirm()); 
+        dispatch(initList());
     }
 }
 /**delete student */
@@ -100,5 +112,28 @@ export function showAlert (
 export function hideAlert () {
     return {
        type: types.HIDE_ALERT
+    }
+}
+export function showConfirm (
+    {
+        message,
+        okText,
+        cancelText,
+        confirmEvent,
+        cancelEvent
+    }
+) {
+    return {
+        type: types.SHOW_CONFIRM,
+        message,
+        okText,
+        cancelText,
+        confirmEvent,
+        cancelEvent
+    }
+}
+export function hideConfirm () {
+    return {
+        type: types.HIDE_CONFIRM
     }
 }

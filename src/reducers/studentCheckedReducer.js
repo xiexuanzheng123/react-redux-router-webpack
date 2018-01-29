@@ -7,6 +7,8 @@ const studentCheckedReducer = (state=studentChecked, action) => {
     switch (action.type) {
         case types.UPDATE_STUDENT_CHECKED:
             return updateStudentChecked (state, action.studentId);
+        case types.INIT_LIST:
+            return studentChecked;
         default:
             return state;
     }
